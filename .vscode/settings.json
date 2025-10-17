@@ -1,7 +1,8 @@
 {
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ]
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "fronterior.biome-monorepo",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  }
 }
