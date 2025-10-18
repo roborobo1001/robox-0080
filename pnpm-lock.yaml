@@ -11,12 +11,12 @@ importers:
       '@biomejs/biome':
         specifier: 2.2.0
         version: 2.2.0
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:packages/typescript-config
       turbo:
         specifier: ^2.5.8
         version: 2.5.8
-      typescript:
-        specifier: 5.9.2
-        version: 5.9.2
 
   apps/docs:
     dependencies:
@@ -76,6 +76,9 @@ importers:
       '@nestjs/testing':
         specifier: ^11.0.1
         version: 11.1.6(@nestjs/common@11.1.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.6(@nestjs/common@11.1.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.1.6)(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/platform-express@11.1.6(@nestjs/common@11.1.6(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.6))
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/express':
         specifier: ^5.0.0
         version: 5.0.3
@@ -125,6 +128,9 @@ importers:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.1.14

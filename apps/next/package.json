@@ -15,6 +15,7 @@
     "next": "15.5.6"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
