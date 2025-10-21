@@ -41,6 +41,15 @@
   },
   "overrides": [
     {
+      "includes": [".lint-eg/**/*"],
+      "formatter": {
+        "enabled": false
+      },
+      "linter": {
+        "enabled": false
+      }
+    },
+    {
       "includes": ["apps/nest/**/*"],
       "linter": {
         "rules": {
