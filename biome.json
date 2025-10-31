@@ -19,6 +19,9 @@
       "recommended": true,
       "suspicious": {
         "noUnknownAtRules": "off"
+      },
+      "nursery": {
+        "noFloatingPromises": "error"
       }
     },
     "domains": {
