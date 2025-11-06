@@ -6,7 +6,7 @@
 
     // output directory
     "outDir": "dist",
-
+    "rootDir": "src",
     // path aliases
     "baseUrl": ".",
     "paths": {
@@ -15,7 +15,8 @@
 
     // build configuration
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "lib": ["ES2022"], // ["DOM", "DOM.Iterable"],
 
     // preserve jsdoc comments for intellisense
@@ -31,5 +32,6 @@
     // relax exact optional property types for friendlier type definitions for front-end patterns
     "exactOptionalPropertyTypes": false
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
