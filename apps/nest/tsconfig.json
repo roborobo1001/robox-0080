@@ -4,5 +4,7 @@
     "baseUrl": "./",
     "outDir": "./dist"
   },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "test"],
   "files": ["../../reset.d.ts"]
 }
