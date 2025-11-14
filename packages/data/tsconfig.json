@@ -15,7 +15,8 @@
 
     // build configuration
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "lib": ["ES2022"], // ["DOM", "DOM.Iterable"],
 
     // preserve jsdoc comments for intellisense
@@ -32,7 +33,7 @@
     "exactOptionalPropertyTypes": false
 
     // "types": ["node", "vitest/globals"]
-  }
-  // "files": [],
-  // "include": []
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
