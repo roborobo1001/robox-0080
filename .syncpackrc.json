@@ -1,0 +1,34 @@
+{
+  "source": ["package.json", "apps/*/package.json", "packages/*/package.json"],
+  "dependencyTypes": ["prod", "dev", "peer"],
+  "semverGroups": [
+    {
+      "label": "Use exact versions for workspace packages",
+      "packages": ["@repo/**"],
+      "dependencies": ["@repo/**"],
+      "isIgnored": false,
+      "range": ""
+    }
+  ],
+  "versionGroups": [
+    {
+      "label": "Keep @ts-rest/core versions in sync",
+      "packages": ["**"],
+      "dependencies": ["@ts-rest/core"],
+      "isIgnored": false
+    },
+    {
+      "label": "Keep zod versions in sync",
+      "packages": ["**"],
+      "dependencies": ["zod"],
+      "isIgnored": false
+    },
+    {
+      "label": "Keep typescript versions in sync",
+      "packages": ["**"],
+      "dependencies": ["typescript"],
+      "isIgnored": false
+    }
+  ]
+}
+
