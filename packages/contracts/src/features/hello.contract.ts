@@ -1,4 +1,4 @@
-import { zHelloDto, zUuidParams } from '@repo/data';
+import { zHelloDto } from '@repo/data';
 import { initContract, type RouterOptions } from '@ts-rest/core';
 import { z } from 'zod';
 import { HELLO_CONTRACT_PATH_PREFIX } from '../constants';
@@ -19,8 +19,6 @@ export const apiHelloContract = c.router(
         200: zHelloDto,
         404: z.null(),
       },
-      pathParams: zUuidParams,
-      query: null,
       summary: 'Get a hello message',
       metadata: { roles: ['guest', 'user'] } as const,
     },
