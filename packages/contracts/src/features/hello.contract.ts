@@ -14,7 +14,7 @@ export const apiHelloContract = c.router(
   {
     getHello: {
       method: 'GET',
-      path: '/hello',
+      path: '/',
       responses: {
         200: zHelloDto,
         404: z.null(),
