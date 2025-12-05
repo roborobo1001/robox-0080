@@ -3,10 +3,19 @@
   "type": "module",
   "version": "0.0.0",
   "sideEffects": false,
-  "main": "src/index.ts",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.cts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
   },
   "scripts": {
     "dev": "tsup --watch",
