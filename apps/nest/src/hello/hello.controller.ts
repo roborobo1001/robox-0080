@@ -3,7 +3,7 @@ import { apiContract } from '@repo/contracts';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
 import { HelloService } from './hello.service';
 
-@Controller('hello')
+@Controller()
 export class HelloController {
   constructor(private readonly helloService: HelloService) {}
 
