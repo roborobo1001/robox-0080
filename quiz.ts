@@ -741,4 +741,3 @@ async function runQuiz() {
 }
 
 runQuiz();
-
