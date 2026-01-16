@@ -1,0 +1,33 @@
+{
+  "name": "ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "biome check .",
+    "format": "biome format . --write"
+  },
+  "dependencies": {
+    "@repo/contracts": "workspace:*",
+    "@repo/data": "workspace:*",
+    "@tanstack/react-query": "^5.62.11",
+    "@ts-rest/core": "^3.52.1",
+    "@ts-rest/react-query": "^3.52.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^22.15.3",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.1",
+    "@vitejs/plugin-react": "^5.1.1",
+    "tailwindcss": "^4",
+    "typescript": "*",
+    "vite": "^7.2.4"
+  }
+}
