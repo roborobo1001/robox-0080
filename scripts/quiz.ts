@@ -1,5 +1,11 @@
 import { readFileSync, writeFileSync } from 'fs';
+import { dirname, join } from 'path';
 import { createInterface } from 'readline';
+import { fileURLToPath } from 'url';
+
+// Get directory of current script file
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 interface Question {
   id: string;
@@ -344,8 +350,9 @@ function shuffle<T>(array: T[]): T[] {
 
 async function runQuiz() {
   try {
+    const abbreviationsPath = join(__dirname, 'abbreviations.json');
     const data = JSON.parse(
-      readFileSync('abbreviations.json', 'utf-8'),
+      readFileSync(abbreviationsPath, 'utf-8'),
     ) as QuizData;
     const { questions, quizSettings } = data;
 
@@ -720,7 +727,7 @@ async function runQuiz() {
     }
 
     // Save updated scores
-    writeFileSync('abbreviations.json', JSON.stringify(data, null, 2));
+    writeFileSync(abbreviationsPath, JSON.stringify(data, null, 2));
 
     console.log('─'.repeat(60));
     console.log('\n📊 Quiz Summary:');

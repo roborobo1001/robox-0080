@@ -17,7 +17,7 @@
     "deps:clear": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
     "ports": "lsof -i -P -n | grep LISTEN",
     "kill:port": "sh -c 'for arg in \"$@\"; do if [ \"$arg\" != \"--\" ]; then port=\"$arg\"; break; fi; done; if [ -z \"$port\" ]; then echo \"Usage: pnpm run kill:port -- <port>\"; exit 1; fi; pids=$(lsof -ti tcp:$port 2>/dev/null); if [ -z \"$pids\" ]; then echo \"No process on port $port\"; else echo \"Killing process(es) on port $port: $pids\"; kill $pids; fi' --",
-    "quiz": "tsx quiz.ts"
+    "quiz": "tsx scripts/quiz.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
