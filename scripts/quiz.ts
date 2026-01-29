@@ -170,6 +170,12 @@ function checkAnswer(
   // Normalize Zhello variations (z = zhello)
   const normalizedForMatchingZhello = normalizeZhello(normalizedForMatching);
 
+  // Normalize tools answers - remove "linting" if both biome and eslint are present
+  const normalizedForMatchingTools = normalizedForMatching
+    .replace(/\blinting\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
   // Combine correctAnswer array with acceptableVariations for checking
   const allAcceptableAnswers = Array.isArray(correctAnswer)
     ? [...correctAnswer]
@@ -184,6 +190,10 @@ function checkAnswer(
       const normalizedAnsDataDto = normalizeDataDto(normalizedAns);
       const normalizedAnsSpelling = normalizeCommonMisspellings(normalizedAns);
       const normalizedAnsTSRest = normalizeTSRest(normalizedAns);
+      const normalizedAnsTools = normalizedAns
+        .replace(/\blinting\b/gi, '')
+        .replace(/\s+/g, ' ')
+        .trim();
       // Check direct match or if answer contains the abbreviation
       return (
         normalizedForMatching === normalizedAns ||
@@ -197,7 +207,8 @@ function checkAnswer(
         normalizedForMatchingSpelling === normalizedAnsSpelling ||
         normalizedForMatchingTSRest === normalizedAnsTSRest ||
         normalizeTsconfig(normalizedAns) === normalizedForMatchingTsconfig ||
-        normalizeZhello(normalizedAns) === normalizedForMatchingZhello
+        normalizeZhello(normalizedAns) === normalizedForMatchingZhello ||
+        normalizedForMatchingTools === normalizedAnsTools
       );
     });
   }
@@ -358,13 +369,61 @@ async function runQuiz() {
 
     console.log('\n🎯 Abbreviations Quiz\n');
     console.log(`Mode: ${quizSettings.mode}`);
-    console.log(`Total questions: ${questions.length}\n`);
+
+    // Filter out historical questions
+    const nonHistoricalQuestions = questions.filter(
+      (q) => q.type !== 'historical',
+    );
+    console.log(
+      `Total questions: ${nonHistoricalQuestions.length} (${questions.length - nonHistoricalQuestions.length} historical questions excluded)\n`,
+    );
 
     let questionList: Question[];
     if (quizSettings.mode === 'random') {
-      questionList = shuffle(questions);
+      // Sort questions by performance (worst first), then shuffle within performance tiers
+      // This ensures questions you perform worse at are asked more frequently
+      const sortedByPerformance = [...nonHistoricalQuestions].sort((a, b) => {
+        // Calculate performance score (lower percentage = worse performance)
+        const aScore = a.scores.percentage;
+        const bScore = b.scores.percentage;
+
+        // If scores are equal, prioritize questions with more attempts (more data)
+        if (aScore === bScore) {
+          const aTotal = a.scores.correct + a.scores.incorrect;
+          const bTotal = b.scores.correct + b.scores.incorrect;
+          return bTotal - aTotal; // More attempts first
+        }
+
+        return aScore - bScore; // Lower percentage first (worse performance)
+      });
+
+      // Group into performance tiers and shuffle within each tier
+      const tiered: Question[][] = [];
+      let currentTier: Question[] = [];
+      let currentTierScore = sortedByPerformance[0]?.scores.percentage ?? 0;
+
+      for (const q of sortedByPerformance) {
+        // Group questions within 10% of each other into the same tier
+        if (Math.abs(q.scores.percentage - currentTierScore) <= 10) {
+          currentTier.push(q);
+        } else {
+          if (currentTier.length > 0) {
+            tiered.push(shuffle(currentTier));
+          }
+          currentTier = [q];
+          currentTierScore = q.scores.percentage;
+        }
+      }
+      if (currentTier.length > 0) {
+        tiered.push(shuffle(currentTier));
+      }
+
+      // Flatten tiers (worst performers first)
+      questionList = tiered.flat();
     } else {
-      questionList = questions.slice(quizSettings.currentQuestionIndex);
+      questionList = nonHistoricalQuestions.slice(
+        quizSettings.currentQuestionIndex,
+      );
     }
 
     let correctCount = 0;
@@ -511,14 +570,22 @@ async function runQuiz() {
         );
         const normalizedAnswer = normalizeAnswer(userAnswer);
         const normalizedTools = normalizeAnswer(q.tools);
+        // Normalize "lint" to "eslint" for matching
+        const normalizedAnswerForLint = normalizedAnswer.replace(
+          /\blint\b/gi,
+          'eslint',
+        );
         const hasTools =
           normalizedAnswer.includes(normalizedTools) ||
+          normalizedAnswerForLint.includes('eslint') ||
           (normalizedAnswer.includes('biome') &&
-            normalizedAnswer.includes('eslint')) ||
+            (normalizedAnswer.includes('eslint') ||
+              normalizedAnswer.includes('lint'))) ||
           (normalizedTools.includes('biome') &&
             normalizedTools.includes('eslint') &&
             (normalizedAnswer.includes('biome') ||
-              normalizedAnswer.includes('eslint')));
+              normalizedAnswer.includes('eslint') ||
+              normalizedAnswer.includes('lint')));
 
         if (hasMainAnswer && hasTools) {
           isCorrect = true;
@@ -555,11 +622,18 @@ async function runQuiz() {
           } else {
             const normalizedToolsAnswer = normalizeAnswer(toolsAnswer);
             const normalizedToolsCorrect = normalizeAnswer(q.tools);
+            // Normalize "lint" to "eslint" for matching
+            const normalizedToolsAnswerForLint = normalizedToolsAnswer.replace(
+              /\blint\b/gi,
+              'eslint',
+            );
             const hasToolsAnswer =
               normalizedToolsAnswer === normalizedToolsCorrect ||
               normalizedToolsAnswer.includes(normalizedToolsCorrect) ||
+              normalizedToolsAnswerForLint.includes('eslint') ||
               (normalizedToolsAnswer.includes('biome') &&
-                normalizedToolsAnswer.includes('eslint'));
+                (normalizedToolsAnswer.includes('eslint') ||
+                  normalizedToolsAnswer.includes('lint')));
 
             if (hasToolsAnswer) {
               isCorrect = true;
