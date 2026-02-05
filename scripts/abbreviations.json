@@ -29,11 +29,6 @@
       "abbreviation": "CRI(svg)SPOD",
       "question": "What does main (CRI(svg)SPOD) stand for?",
       "correctAnswer": "Create, Repo/Removes, Install, Scripts, Ports, Output, Deps",
-      "acceptableVariations": [
-        "Create, Repo + Removes, (Install, Invoke, Ignore), Scripts, Ports, Output, Deps",
-        "Create, Repo + Removes, Install, Scripts, Ports, Output, Deps",
-        "Create, Repo/Removes, (Install, Invoke, Ignore), Scripts, Ports, Output, Deps"
-      ],
       "scores": {
         "correct": 1,
         "incorrect": 0,
@@ -281,105 +276,19 @@
     {
       "id": "rust-full",
       "type": "full-form",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What does RUST(ROOT ROCE) stand for? Which component is it part of? What topic does CDW / CCDS relate to?",
-      "correctAnswer": "Use @repo over @workspace, tsUp, Scripts, TSConfig(ROOT ROCE)",
+      "abbreviation": "RUST(ROCE)",
+      "question": "What does RUST(ROCE) stand for? Which component is it part of? What topic does CDW / CCDS relate to?",
+      "correctAnswer": "Repo, tsUp, Scripts, Tsconfig",
       "acceptableVariations": [
-        "Use @repo over @workspace, tsUp, Scripts, TSConfig(ROOT ROCE)",
-        "Use @repo, tsUp, Scripts, TSConfig(ROOT ROCE)",
-        "@repo, tsUp, Scripts, TSConfig(ROOT ROCE)",
-        "Repo, tsUp, Scripts, TSConfig(ROOT ROCE)",
-        "repo, tsup, scripts, tsconfig(root, outdir, moduleCommonJS, exclude dist)"
+        "Repo, tsUp, Scripts, Typescript",
+        "repo, tsup, scripts, typescript",
+        "repo, tsup, scripts, tsconfig",
+        "Repo, tsUp, Scripts, Tsconfig (ROCE)",
+        "repo, tsup, scripts, typescript(root, output, commonjs, excludes)"
       ],
       "relatedTo": "Contract component in CDW",
       "cdwRelatedTo": "CCDS",
       "topic": "contract",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "rust-r-historical",
-      "type": "historical",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What did 'R' in RUST(ROCE) used to stand for? (Historical - what was the old meaning?)",
-      "correctAnswer": "Repo",
-      "historicalNote": "Previously 'R' stood for 'Repo', now it stands for 'Use @repo over @workspace'",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "rust-r-current",
-      "type": "letter",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What does the first 'R' in RUST stand for? (Not the old 'Repo' meaning - the current meaning)",
-      "correctAnswer": "Use @repo over @workspace",
-      "acceptableVariations": ["Use @repo", "@repo over @workspace", "@repo"],
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "roce-c-historical",
-      "type": "historical",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What did 'C' in ROCE used to stand for? (Historical - what was the old meaning?)",
-      "correctAnswer": "CommonJs",
-      "historicalNote": "Previously 'C' stood for 'CommonJs', now it stands for 'moduleCommonJS'",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "roce-c-current",
-      "type": "letter",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What does 'C' currently stand for in ROCE? (Not the old 'CommonJs' meaning)",
-      "correctAnswer": "moduleCommonJS",
-      "acceptableVariations": [
-        "moduleCommonJS",
-        "module CommonJS",
-        "CommonJS module"
-      ],
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "roce-e-historical",
-      "type": "historical",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What did 'E' in ROCE used to stand for? (Historical - what was the old meaning?)",
-      "correctAnswer": "Excludes",
-      "historicalNote": "Previously 'E' stood for 'Excludes', now it stands for 'exclude dist'",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "roce-e-current",
-      "type": "letter",
-      "abbreviation": "RUST(ROOT ROCE)",
-      "question": "What does 'E' currently stand for in ROCE? (Not the old 'Excludes' meaning)",
-      "correctAnswer": "exclude dist",
-      "acceptableVariations": [
-        "exclude dist",
-        "exclude dist",
-        "exclude dist folder"
-      ],
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -406,54 +315,6 @@
       "type": "relationship",
       "question": "What topic does the abbreviation pair CDW / CCDS relate to?",
       "correctAnswer": "contract",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "ccds-contract-abbreviation",
-      "type": "relationship",
-      "question": "In CCDS, what is the abbreviation for Contract? (Hint: CT)",
-      "correctAnswer": "CTO ICRMR",
-      "hint": "CT",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "ccds-controller-abbreviation",
-      "type": "relationship",
-      "question": "In CCDS, what is the abbreviation for Controller? (Hint: T)",
-      "correctAnswer": "TSCC DCC DCHA RTSC MADAS",
-      "hint": "T",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "ccds-data-abbreviation",
-      "type": "relationship",
-      "question": "In CCDS, what is the abbreviation for Data? (Hint: Deck)",
-      "correctAnswer": "DECZO EIDEIFTY",
-      "hint": "Deck",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "ccds-service-abbreviation",
-      "type": "relationship",
-      "question": "In CCDS, what is the abbreviation for Service? (Hint: Sangha)",
-      "correctAnswer": "SIDAP APR TR808",
-      "hint": "Sangha",
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -531,38 +392,6 @@
       ],
       "relatedTo": "Controller component in CCDS",
       "fullSequence": "TSCC DCC DCAH RTSC MADAS",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "rtsc-historical",
-      "type": "historical",
-      "abbreviation": "RTSC",
-      "question": "What did RTSC used to include that it no longer does? (Historical - what was removed?)",
-      "correctAnswer": "Method",
-      "historicalNote": "Previously RTSC included 'Method', now it stands for 'Return, TSresthandler, Contract' (Method was removed)",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "rtsc-full-historical",
-      "type": "historical",
-      "abbreviation": "RTSC",
-      "question": "What did RTSC used to stand for? (Historical - the old full form including Method)",
-      "correctAnswer": "Return, Method, TSresthandler, Contract",
-      "acceptableVariations": [
-        "Return, Method, TsRest, Contract",
-        "Return, Method, TSrest, Contract",
-        "Return, Method, TSRest, Contract",
-        "Return, Method, TsRestHandler, Contract"
-      ],
-      "historicalNote": "Previously included 'Method', now it's just 'Return, TSresthandler, Contract'",
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -698,31 +527,8 @@
       "acceptableVariations": [
         "biome and eslint",
         "biome, eslint",
-        "biome/eslint",
-        "Biome Eslint Linting",
-        "biome eslint linting",
-        "Biome Eslint",
-        "biome eslint"
+        "biome/eslint"
       ],
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "eprawn-full",
-      "type": "full-form",
-      "abbreviation": "(E)PRAWN",
-      "question": "What does (E)PRAWN stand for?",
-      "correctAnswer": "(Eliminate ESLINT), Package, Prettier, Add Extension, Workspace, Next",
-      "acceptableVariations": [
-        "Eliminate ESLINT, Package, Prettier, Add Extension, Workspace, Next",
-        "Eliminate eslint, Package, Prettier, Add Extension, Workspace, Next"
-      ],
-      "relatedTo": "B(E)DS(TCP)",
-      "group": "lint group",
-      "tools": "biome / eslint",
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -790,19 +596,6 @@
         "tests, overrides & typescript",
         "tests/overrides/typescript"
       ],
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "tots-topics-historical",
-      "type": "historical",
-      "abbreviation": "TOT(S)",
-      "question": "What did the topics for TOT(S) / RUN FUCT used to be? (Historical - what was the old answer?)",
-      "correctAnswer": "typescript",
-      "historicalNote": "Previously the answer was just 'typescript', now it's 'tests, overrides, and typescript'",
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -930,62 +723,14 @@
       }
     },
     {
-      "id": "fmac-f-abbreviation",
-      "type": "relationship",
-      "abbreviation": "FMAC",
-      "question": "In FMAC, what is the abbreviation for F?",
-      "correctAnswer": "ICQ(cba)",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "fmac-m-abbreviation",
-      "type": "relationship",
-      "abbreviation": "FMAC",
-      "question": "In FMAC, what is the abbreviation for M?",
-      "correctAnswer": "MQPC",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "fmac-a-abbreviation",
-      "type": "relationship",
-      "abbreviation": "FMAC",
-      "question": "In FMAC, what is the abbreviation for A?",
-      "correctAnswer": "AFARJSX",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "fmac-c-abbreviation",
-      "type": "relationship",
-      "abbreviation": "FMAC",
-      "question": "In FMAC, what is the abbreviation for C?",
-      "correctAnswer": "IF DIE CUQ",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "icq-full",
+      "id": "fmac-f-sub",
       "type": "full-form",
-      "abbreviation": "ICQ(cba)",
-      "question": "What does ICQ(cba) stand for? (What does F in FMAC break down to?)",
-      "correctAnswer": "Init, Client, Query(contract, base api)",
+      "abbreviation": "ICQ IQC EQ (cba)",
+      "question": "In FMAC, what does the 'F' sub-abbreviation ICQ IQC EQ (cba) stand for?",
+      "correctAnswer": "Import, Contract, Init, Query, Client, Export, Query (contract, base api)",
       "acceptableVariations": [
-        "Init, Client, Query(contract, baseApi)",
-        "Init, Client, Query"
+        "Import, Contract, Init, Query, Client, Export, Query",
+        "Import Contract Init Query Client Export Query contract base api"
       ],
       "scores": {
         "correct": 0,
@@ -994,48 +739,14 @@
       }
     },
     {
-      "id": "icq-i",
-      "type": "letter",
-      "abbreviation": "ICQ(cba)",
-      "question": "What does 'I' stand for in ICQ(cba)?",
-      "correctAnswer": "Init",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "icq-c",
-      "type": "letter",
-      "abbreviation": "ICQ(cba)",
-      "question": "What does 'C' stand for in ICQ(cba)?",
-      "correctAnswer": "Client",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "icq-q",
-      "type": "letter",
-      "abbreviation": "ICQ(cba)",
-      "question": "What does 'Q' stand for in ICQ(cba)? What does (cba) remind you of?",
-      "correctAnswer": "Query(contract, base api)",
-      "acceptableVariations": ["Query(contract, baseApi)", "Query"],
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "mqpc-full",
+      "id": "fmac-m-sub",
       "type": "full-form",
-      "abbreviation": "MQPC",
-      "question": "What does MQPC stand for? (What does M in FMAC break down to?)",
-      "correctAnswer": "Main, Query, Client, Provider",
+      "abbreviation": "MQCPQC NQC RPCA",
+      "question": "In FMAC, what does the 'M' sub-abbreviation MQCPQC NQC RPCA stand for?",
+      "correctAnswer": "Main, Query, Client, Provider, Query, Client, New, Query, Client, Return, Provider, Client, App",
+      "acceptableVariations": [
+        "Main Query Client Provider Query Client New Query Client Return Provider Client App"
+      ],
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -1043,47 +754,14 @@
       }
     },
     {
-      "id": "mqpc-m",
-      "type": "letter",
-      "abbreviation": "MQPC",
-      "question": "What does 'M' stand for in MQPC?",
-      "correctAnswer": "Main",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "mqpc-q",
-      "type": "letter",
-      "abbreviation": "MQPC",
-      "question": "What does 'Q' stand for in MQPC?",
-      "correctAnswer": "Query",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "mqpc-p",
-      "type": "letter",
-      "abbreviation": "MQPC",
-      "question": "What does 'P' stand for in MQPC?",
-      "correctAnswer": "Provider",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "afarjsx-full",
+      "id": "fmac-a-sub",
       "type": "full-form",
-      "abbreviation": "AFARJSX",
-      "question": "What does AFARJSX stand for? (What does A in FMAC break down to?)",
-      "correctAnswer": "App, Function, App, Return, JSX",
+      "abbreviation": "AFARJSX Hello",
+      "question": "In FMAC, what does the 'A' sub-abbreviation AFARJSX Hello stand for?",
+      "correctAnswer": "App, Function, App, Return, JSX, Hello",
+      "acceptableVariations": [
+        "App Function App Return JSX Hello"
+      ],
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -1091,159 +769,14 @@
       }
     },
     {
-      "id": "afarjsx-a1",
-      "type": "letter",
-      "abbreviation": "AFARJSX",
-      "question": "What does the first 'A' stand for in AFARJSX?",
-      "correctAnswer": "App",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "afarjsx-f",
-      "type": "letter",
-      "abbreviation": "AFARJSX",
-      "question": "What does 'F' stand for in AFARJSX?",
-      "correctAnswer": "Function",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "afarjsx-a2",
-      "type": "letter",
-      "abbreviation": "AFARJSX",
-      "question": "What does the second 'A' stand for in AFARJSX?",
-      "correctAnswer": "App",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "afarjsx-r",
-      "type": "letter",
-      "abbreviation": "AFARJSX",
-      "question": "What does 'R' stand for in AFARJSX?",
-      "correctAnswer": "Return",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "afarjsx-jsx",
-      "type": "letter",
-      "abbreviation": "AFARJSX",
-      "question": "What does 'JSX' stand for in AFARJSX?",
-      "correctAnswer": "JSX",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-full",
+      "id": "fmac-c-sub",
       "type": "full-form",
       "abbreviation": "IF DIE CUQ",
-      "question": "What does IF DIE CUQ stand for? (What does C in FMAC break down to?)",
+      "question": "In FMAC, what does the 'C' sub-abbreviation IF DIE CUQ stand for?",
       "correctAnswer": "Import, Fetch, Data, IsLoading, Error, Contract, Use, Query",
       "acceptableVariations": [
-        "Import, Fetch, Data, IsLoading, Error, Contract, UseQuery"
+        "Import Fetch Data IsLoading Error Contract Use Query"
       ],
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-i",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does the first 'I' in IF DIE CUQ stand for? (The 'I' in IF)",
-      "correctAnswer": "Import",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-f",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does 'F' stand for in IF DIE CUQ?",
-      "correctAnswer": "Fetch",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-d",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does 'D' stand for in IF DIE CUQ?",
-      "correctAnswer": "Data",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-ie",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does 'IE' stand for in IF DIE CUQ? (The 'I' in DIE and 'E')",
-      "correctAnswer": "IsLoading, Error",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-i-die",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does the 'I' in DIE stand for in IF DIE CUQ?",
-      "correctAnswer": "IsLoading",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-c",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does 'C' stand for in IF DIE CUQ?",
-      "correctAnswer": "Contract",
-      "scores": {
-        "correct": 0,
-        "incorrect": 0,
-        "percentage": 0
-      }
-    },
-    {
-      "id": "if-die-cuq-uq",
-      "type": "letter",
-      "abbreviation": "IF DIE CUQ",
-      "question": "What does 'UQ' stand for in IF DIE CUQ?",
-      "correctAnswer": "Use, Query",
-      "acceptableVariations": ["UseQuery", "Use Query"],
       "scores": {
         "correct": 0,
         "incorrect": 0,
@@ -1302,7 +835,7 @@
         {
           "letter": "(E)",
           "standsFor": "EPRAWN",
-          "note": "Also the alternative abbreviation (E)PRAWN"
+          "note": "Also the alternative abbreviation"
         },
         {
           "letter": "D",
@@ -1313,37 +846,6 @@
           "standsFor": "Scripts",
           "variations": ["SeTtings", "sCripts", "sPacing"],
           "mnemonic": "(TCP)"
-        }
-      ]
-    },
-    {
-      "abbreviation": "(E)PRAWN",
-      "fullForm": "(Eliminate ESLINT), Package, Prettier, Add Extension, Workspace, Next",
-      "description": "Paired with B(E)DS(TCP) in the lint group. Relates to biome / eslint tools",
-      "letters": [
-        {
-          "letter": "(E)",
-          "standsFor": "Eliminate ESLINT"
-        },
-        {
-          "letter": "P",
-          "standsFor": "Package"
-        },
-        {
-          "letter": "R",
-          "standsFor": "Prettier"
-        },
-        {
-          "letter": "A",
-          "standsFor": "Add Extension"
-        },
-        {
-          "letter": "W",
-          "standsFor": "Workspace"
-        },
-        {
-          "letter": "N",
-          "standsFor": "Next"
         }
       ]
     },
@@ -1427,13 +929,12 @@
       "components": [
         {
           "name": "Contract",
-          "abbreviation": "RUST(ROOT ROCE)",
-          "fullForm": "Use @repo over @workspace, tsUp, Scripts, TSConfig(ROOT ROCE)",
-          "description": "Contracts Package - TSRestWorkspace w TSUP",
+          "abbreviation": "RUST(ROCE)",
+          "fullForm": "Repo, tsUp, Scripts, Tsconfig",
           "letters": [
             {
               "letter": "R",
-              "standsFor": "Use @repo over @workspace"
+              "standsFor": "Repo"
             },
             {
               "letter": "U",
@@ -1441,19 +942,13 @@
             },
             {
               "letter": "S",
-              "standsFor": "Scripts: dev, build, check-types"
+              "standsFor": "Scripts"
             },
             {
               "letter": "T",
-              "standsFor": "TSConfig(ROOT ROCE)",
-              "note": "ROOT = Root dir, Outdir | ROCE = Outdir, moduleCommonJS, exclude dist",
-              "variations": [
-                "Root dir",
-                "Outdir",
-                "moduleCommonJS",
-                "exclude dist"
-              ],
-              "mnemonic": "(ROOT ROCE)"
+              "standsFor": "Tsconfig",
+              "variations": ["Root dir", "Output dir", "CommonJs", "Excludes"],
+              "mnemonic": "(ROCE)"
             }
           ]
         },
@@ -1658,84 +1153,33 @@
       "letters": []
     },
     {
-      "name": "Frontend",
       "abbreviation": "FMAC",
       "fullForm": "Fetch, Main, App, Component",
-      "description": "Frontend setup sequence for React + Vite with ts-rest",
+      "description": "React component structure pattern",
       "letters": [
         {
           "letter": "F",
           "standsFor": "Fetch",
-          "note": "Breaks down to ICQ(cba)"
+          "subAbbreviation": "ICQ IQC EQ (cba)",
+          "subFullForm": "Import, Contract, Init, Query, Client, Export, Query (contract, base api)"
         },
         {
           "letter": "M",
           "standsFor": "Main",
-          "note": "Breaks down to MQPC"
+          "subAbbreviation": "MQCPQC NQC RPCA",
+          "subFullForm": "Main, Query, Client, Provider, Query, Client, New, Query, Client, Return, Provider, Client, App"
         },
         {
           "letter": "A",
           "standsFor": "App",
-          "note": "Breaks down to AFARJSX"
+          "subAbbreviation": "AFARJSX Hello",
+          "subFullForm": "App, Function, App, Return, JSX, Hello"
         },
         {
           "letter": "C",
           "standsFor": "Component",
-          "note": "Breaks down to IF DIE CUQ"
-        }
-      ],
-      "subAbbreviations": [
-        {
-          "name": "Fetch Client",
-          "abbreviation": "ICQ(cba)",
-          "fullForm": "Init, Client, Query(contract, base api)",
-          "letters": [
-            { "letter": "I", "standsFor": "Init" },
-            { "letter": "C", "standsFor": "Client" },
-            {
-              "letter": "Q",
-              "standsFor": "Query",
-              "note": "(cba) = contract, base api"
-            }
-          ]
-        },
-        {
-          "name": "Main Setup",
-          "abbreviation": "MQPC",
-          "fullForm": "Main, Query, Client, Provider",
-          "letters": [
-            { "letter": "M", "standsFor": "Main" },
-            { "letter": "Q", "standsFor": "Query" },
-            { "letter": "C", "standsFor": "Client" },
-            { "letter": "P", "standsFor": "Provider" }
-          ]
-        },
-        {
-          "name": "App Component",
-          "abbreviation": "AFARJSX",
-          "fullForm": "App, Function, App, Return, JSX",
-          "letters": [
-            { "letter": "A", "standsFor": "App" },
-            { "letter": "F", "standsFor": "Function" },
-            { "letter": "A", "standsFor": "App" },
-            { "letter": "R", "standsFor": "Return" },
-            { "letter": "JSX", "standsFor": "JSX" }
-          ]
-        },
-        {
-          "name": "Component Hook",
-          "abbreviation": "IF DIE CUQ",
-          "fullForm": "Import, Fetch, Data, IsLoading, Error, Contract, Use, Query",
-          "letters": [
-            { "letter": "I", "standsFor": "Import" },
-            { "letter": "F", "standsFor": "Fetch" },
-            { "letter": "D", "standsFor": "Data" },
-            { "letter": "I", "standsFor": "IsLoading" },
-            { "letter": "E", "standsFor": "Error" },
-            { "letter": "C", "standsFor": "Contract" },
-            { "letter": "U", "standsFor": "Use" },
-            { "letter": "Q", "standsFor": "Query" }
-          ]
+          "subAbbreviation": "IF DIE CUQ",
+          "subFullForm": "Import, Fetch, Data, IsLoading, Error, Contract, Use, Query"
         }
       ]
     }
