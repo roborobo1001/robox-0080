@@ -99,7 +99,8 @@ function normalizeCommonMisspellings(text: string): string {
   return text
     .replace(/\boverides\b/gi, 'overrides')
     .replace(/\btypescipt\b/gi, 'typescript')
-    .replace(/\btypescrip\b/gi, 'typescript');
+    .replace(/\btypescrip\b/gi, 'typescript')
+    .replace(/\bcleint\b/gi, 'client');
 }
 
 function normalizeTsconfig(text: string): string {
@@ -141,11 +142,23 @@ function checkAnswer(
 ): boolean {
   const normalized = normalizeAnswer(userAnswer);
 
-  // Handle aliases: "main" is an alias for CRI(svg)SPOD
-  // Replace "main" with "cri(svg)spod" for matching
+  const allAcceptableAnswers = Array.isArray(correctAnswer)
+    ? [...correctAnswer]
+    : [correctAnswer];
+  if (acceptableVariations) {
+    allAcceptableAnswers.push(...acceptableVariations);
+  }
+  const correctExpectsCriSvgSpod = allAcceptableAnswers.some((a) =>
+    normalizeAnswer(a).includes('cri(svg)spod'),
+  );
+
+  // "main" is an alias for CRI(svg)SPOD only when the question expects that (e.g. main list).
+  // For FMAC, "Main" is the literal answer for M, so keep it as "main".
   const normalizedForMatching =
     normalized === 'main'
-      ? 'cri(svg)spod'
+      ? correctExpectsCriSvgSpod
+        ? 'cri(svg)spod'
+        : 'main'
       : normalized
           .replace(/^main\s*\(/i, '')
           .replace(/\)$/, '')
@@ -169,14 +182,6 @@ function checkAnswer(
 
   // Normalize Zhello variations (z = zhello)
   const normalizedForMatchingZhello = normalizeZhello(normalizedForMatching);
-
-  // Combine correctAnswer array with acceptableVariations for checking
-  const allAcceptableAnswers = Array.isArray(correctAnswer)
-    ? [...correctAnswer]
-    : [correctAnswer];
-  if (acceptableVariations) {
-    allAcceptableAnswers.push(...acceptableVariations);
-  }
 
   if (allAcceptableAnswers.length > 1 || Array.isArray(correctAnswer)) {
     return allAcceptableAnswers.some((ans) => {
@@ -339,13 +344,44 @@ function checkAnswer(
   );
 }
 
-function shuffle<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+/**
+ * Build question list with weighted random order: questions you answer
+ * poorly (lower lifetime %) come up more often, while still random.
+ */
+function weightedShuffleQuestions(questions: Question[]): Question[] {
+  const total = questions.length;
+  if (total === 0) return [];
+
+  // Weight = inverse of success. Questions you answer POORLY (low %) come up first.
+  // Never-answered get medium weight so they don't crowd out ones you actually get wrong.
+  const getWeight = (q: Question): number => {
+    const attempts = q.scores.correct + q.scores.incorrect;
+    const pct = q.scores.percentage ?? 0;
+    if (attempts === 0) return 25; // never answered: medium priority (not first every time)
+    // Answered at least once: low % (answer poorly) => high weight => appear first
+    const raw = 101 - pct; // 0% -> 101, 100% -> 1
+    return Math.max(1, Math.round(raw ** 1.4)); // 0% -> ~580, 50% -> ~22, 100% -> 1
+  };
+
+  const result: Question[] = [];
+  let remaining = questions.map((q, index) => ({ q, index, weight: getWeight(q) }));
+
+  while (remaining.length > 0) {
+    const totalWeight = remaining.reduce((sum, { weight }) => sum + weight, 0);
+    let r = Math.random() * totalWeight;
+    let chosen = 0;
+    for (let i = 0; i < remaining.length; i++) {
+      r -= remaining[i].weight;
+      if (r <= 0) {
+        chosen = i;
+        break;
+      }
+    }
+    result.push(remaining[chosen].q);
+    remaining = remaining.filter((_, i) => i !== chosen);
   }
-  return shuffled;
+
+  return result;
 }
 
 async function runQuiz() {
@@ -361,10 +397,10 @@ async function runQuiz() {
     console.log(`Total questions: ${questions.length}\n`);
 
     let questionList: Question[];
-    if (quizSettings.mode === 'random') {
-      questionList = shuffle(questions);
-    } else {
+    if (quizSettings.mode === 'sequential') {
       questionList = questions.slice(quizSettings.currentQuestionIndex);
+    } else {
+      questionList = weightedShuffleQuestions(questions);
     }
 
     let correctCount = 0;
@@ -747,4 +783,6 @@ async function runQuiz() {
   }
 }
 
-runQuiz();
+void runQuiz().catch((err) => {
+  console.error('Quiz error:', err);
+});
