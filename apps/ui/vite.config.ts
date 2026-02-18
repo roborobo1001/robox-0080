@@ -17,6 +17,10 @@ export default defineConfig({
         target: 'http://localhost:3030',
         changeOrigin: true,
       },
+      '/hello': {
+        target: 'http://localhost:3030',
+        changeOrigin: true,
+      },
     },
   },
 });
