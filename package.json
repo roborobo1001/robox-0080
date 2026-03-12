@@ -25,7 +25,7 @@
     "@total-typescript/ts-reset": "^0.6.1",
     "syncpack": "^13.0.4",
     "tsx": "^4.19.2",
-    "turbo": "^2.5.8"
+    "turbo": "^2.8.11"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {
