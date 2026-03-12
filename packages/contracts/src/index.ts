@@ -5,3 +5,4 @@ export * from './constants';
 export * from './contract';
 // Individual feature contracts
 export * from './features/hello.contract';
+export * from './features/users.contract';
