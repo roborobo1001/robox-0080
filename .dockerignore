@@ -1,0 +1,16 @@
+node_modules
+**/node_modules
+
+.biomeignore
+.env
+.env.*
+.git
+.gitignore
+.syncpackrc.json
+
+biome.json
+README.md
+*README*.md
+
+docker-compose.yaml
+docker-compose.yml
