@@ -1,12 +1,12 @@
 import { z } from 'zod';
 
 export const zUserDto = z.object({
-  id: z.string(),
-  name: z.string(),
-  email: z.string(),
-  password: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
+  id: z.string().uuid(),
+  name: z.string().min(1),
+  email: z.string().email(),
+  password: z.string().min(1),
+  createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime(),
 });
 
 export const zUserCreateInput = z.object({
