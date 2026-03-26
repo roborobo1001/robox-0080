@@ -1,9 +1,9 @@
 import { Controller } from '@nestjs/common';
 import { apiContract } from '@repo/contracts';
+import type { UserCreateInput } from '@repo/data';
 import { TsRestHandler, tsRestHandler } from '@ts-rest/nest';
 import { UsersService } from '../application/users.service';
-import { CreateUserRequestDto } from './dtos/create-user.dto';
-import { transformUserDto } from './dtos/user-response.dto';
+import { transformUserDto } from './user-response.dto';
 
 @Controller()
 export class UsersController {
@@ -16,7 +16,7 @@ export class UsersController {
         const users = await this.usersService.findAll();
         return { status: 200, body: users.map(transformUserDto) };
       },
-      createUser: async ({ body }: { body: CreateUserRequestDto }) => {
+      createUser: async ({ body }: { body: UserCreateInput }) => {
         const user = await this.usersService.create(body);
         return { status: 201, body: transformUserDto(user) };
       },
